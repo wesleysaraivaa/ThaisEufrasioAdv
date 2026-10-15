@@ -1,0 +1,137 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@theme inline {
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: oklch(0.975 0.004 85);
+  --foreground: oklch(0.18 0.005 60);
+  --card: oklch(0.98 0.004 85);
+  --card-foreground: oklch(0.18 0.005 60);
+  --primary: oklch(0.18 0.005 60);
+  --primary-foreground: oklch(0.975 0.004 85);
+  --muted: oklch(0.93 0.006 85);
+  --muted-foreground: oklch(0.45 0.008 70);
+  --accent: oklch(0.56 0.065 64);
+  --accent-foreground: oklch(0.975 0.004 85);
+  --gold: oklch(0.525 0.062 62);
+  --gold-soft: oklch(0.715 0.048 68);
+  --border: oklch(0.18 0.005 60 / 0.14);
+  --input: oklch(0.18 0.005 60 / 0.14);
+  --ring: oklch(0.525 0.062 62);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+  }
+  /* Grão de papel: textura real, quase imperceptível */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+  h1,
+  h2,
+  h3,
+  blockquote {
+    font-weight: 400;
+  }
+  ::selection {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+}
+
+@utility font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-feature-settings: "liga";
+}
+
+/* Linha divisória com leve irregularidade — nada de hairline perfeita */
+@utility rule-hand {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-foreground) 18%, transparent) 0%,
+    color-mix(in oklab, var(--color-foreground) 8%, transparent) 22%,
+    color-mix(in oklab, var(--color-foreground) 20%, transparent) 48%,
+    color-mix(in oklab, var(--color-foreground) 6%, transparent) 76%,
+    color-mix(in oklab, var(--color-foreground) 16%, transparent) 100%
+  );
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-muted-foreground);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .marquee-track {
+    animation-duration: 40s;
+  }
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
