@@ -1,7 +1,3 @@
-/**
- * Monograma "TE" com haste de balança — marca d'água autoral,
- * usada onde antes havia os numerais decorativos gigantes.
- */
 export function Monograma({ className }: { className?: string }) {
   return (
     <svg

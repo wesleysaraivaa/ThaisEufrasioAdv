@@ -28,7 +28,7 @@ export function Hero() {
 
       <div className="mx-auto flex min-h-screen max-w-350 flex-col justify-center px-6 pt-28 md:px-10 md:pt-32 lg:pl-24">
         <div className="relative grid grid-cols-12 items-end gap-y-10">
-          {/* Headline — spans nearly the full width, overlapping the photo strip */}
+          {/* Headline */}
           <div className="relative z-20 col-span-12 lg:col-span-9">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -49,7 +49,7 @@ export function Hero() {
               transition={{ duration: 1.2, delay: 0.08, ease: EASE }}
               className="font-serif font-light text-foreground"
             >
-              {/* Mobile: três linhas equilibradas, sem recuos exagerados */}
+              {/* Mobile */}
               <span className="block text-[clamp(3.4rem,15vw,4.6rem)] leading-[0.92] tracking-[-0.03em] sm:hidden">
                 <span className="block">
                   Defender <span className="italic text-gold">é</span>
@@ -58,7 +58,7 @@ export function Hero() {
                 <span className="block pl-[10%]">de gente.</span>
               </span>
 
-              {/* Desktop: composição editorial original */}
+              {/* Desktop */}
               <span className="hidden text-[clamp(3rem,13vw,11rem)] leading-[0.86] tracking-[-0.045em] sm:block">
                 <span className="block">Defender</span>
                 <span className="block pl-[8%] italic text-gold">é</span>
@@ -68,7 +68,7 @@ export function Hero() {
             </motion.h1>
           </div>
 
-          {/* Photo strip — narrow vertical band, sharp, anchored right */}
+          {/* Photo strip */}
           <motion.div
             ref={stripRef}
             initial={{ opacity: 0, y: 40 }}
@@ -87,7 +87,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Footer masthead of the hero */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

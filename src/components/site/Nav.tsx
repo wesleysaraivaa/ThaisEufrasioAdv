@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// Logo: substitua src/assets/logo.jpg pela foto real da advogada (circular, ~80×80px)
 import logoSrc from "@/assets/logo.jpg";
 import { WHATSAPP_URL, OAB, CIDADE } from "./content";
 

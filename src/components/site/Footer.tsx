@@ -1,4 +1,3 @@
-// Logo: substitua src/assets/logo.jpg pela foto real da advogada (circular, ~80×80px)
 import logoSrc from "@/assets/logo.jpg";
 import { CIDADE, INSTAGRAM_URL, OAB, WHATSAPP_URL } from "./content";
 

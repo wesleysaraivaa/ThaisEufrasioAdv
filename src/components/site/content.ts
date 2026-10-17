@@ -121,7 +121,6 @@ export const PRIMEIRA_SEMANA = [
   },
 ];
 
-// TODO: substituir por depoimentos reais autorizados (iniciais, cidade e tipo de caso)
 export const DEPOIMENTOS = [
   {
     nome: "M. R.",
